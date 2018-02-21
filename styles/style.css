@@ -1,0 +1,40 @@
+html {
+	color: #443850;
+	font-family: "Tahoma", "Geneva", "sans-serif";
+	background-color: #f7f4e3;
+}
+
+.logo {
+	length: 75px;
+	width: 75px;
+}
+
+.navigation {
+	display: inline;
+}
+
+.navigation li {
+	display: inline;
+	border: 1px black solid;
+	margin: 10px;
+	padding: 5px;
+	background-color: #e9e3b4;
+}
+
+.header {
+	margin: 2em;
+}
+
+.body {
+	text-align: center;
+	background-color: #efeac8;
+	border: 1px black solid;
+	border-radius: 15px;
+	margin: 2em;
+	padding: 1em;
+}
+
+.footer {
+   text-align: center;
+	 font-size: 10pt;
+}
