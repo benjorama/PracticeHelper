@@ -7,17 +7,7 @@
 </head>
 
 <body>
-	<div class="header">
-		<img src="/images/owlie-blues-300px.png" alt="Blue owl with a flugelhorn."
-			class="logo">
-
-		<ul class="navigation">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="practicepage.html">Try It</a></li>
-			<li><a href="signup.html">Sign Up</a></li>
-			<li><a href="login.html">Log In</a></li>
-		</ul>
-	</div>
+	<?php include_once('include/header.php'); ?>
 	
 	<div class="body">
 		<h2>Your Practice Page</h2>
@@ -32,9 +22,6 @@
 		<h3>Practice History</h3>
 	</div>
 	
-	<div class="footer">
-		<p>&copy;Ben Macomb</p>
-	</div>
-	
+	<?php include_once('include/footer.php'); ?>
 </body>
 </html>

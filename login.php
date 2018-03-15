@@ -7,18 +7,8 @@
 </head>
 
 <body>
-	<div class="header">
-		<img src="/images/owlie-blues-300px.png" alt="Blue owl with a flugelhorn."
-			class="logo">
+	<?php include_once('include/header.php'); ?>
 
-		<ul class="navigation">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="practicepage.html">Try It</a></li>
-			<li><a href="signup.html">Sign Up</a></li>
-			<li><a href="login.html">Log In</a></li>
-		</ul>
-	</div>
-	
 	<div class="body">
 		<h2>Log In</h2>
 		<p>Enter your user name and password to log in.</p>
@@ -29,10 +19,7 @@
 			<input type="submit" value="Submit">
 		</form>		
 	</div>
-	
-	<div class="footer">
-		<p>&copy;Ben Macomb</p>
-	</div>
-	
+
+	<?php include_once('include/footer.php'); ?>
 </body>
 </html>
