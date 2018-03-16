@@ -3,9 +3,13 @@
 			class="logo">
 
 		<ul class="navigation">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="practicepage.php">Try It</a></li>
-			<li><a href="signup.php">Sign Up</a></li>
-			<li><a href="login.php">Log In</a></li>
+			<li<?php if ($page == 'home') { ?> id=currentPage <?php } ?>>
+				<a href="index.php">Home</a></li>
+			<li<?php if ($page == 'practicepage') { ?> id=currentPage <?php } ?>>
+				<a href="practicepage.php">Try It</a></li>
+			<li<?php if ($page == 'signup') { ?> id=currentPage <?php } ?>>
+				<a href="signup.php">Sign Up</a></li>
+			<li<?php if ($page == 'login') { ?> id=currentPage <?php } ?>>
+				<a href="login.php">Log In</a></li>
 		</ul>
 	</div>

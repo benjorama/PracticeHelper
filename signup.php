@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link href="/images/favicon.ico" type="image/png" rel="shortcut icon" />
-	<link href="/styles/style.css" type="text/css" rel="stylesheet" />
-	<title>Practice Helper: Sign Up</title>
-</head>
+<?php 
+$page = 'signup';
+include_once('include/head.php'); 
+?>
 
 <body>
 	<?php include_once('include/header.php'); ?>

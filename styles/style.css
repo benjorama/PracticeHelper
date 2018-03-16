@@ -21,6 +21,10 @@ html {
 	background-color: #e9e3b4;
 }
 
+#currentPage {
+	background-color: aquamarine;
+}
+
 .header {
 	margin: 2em;
 }
