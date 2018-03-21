@@ -1,5 +1,7 @@
 <?php 
 $page = 'signup';
+require_once('include/Dao.php');
+$dao = new Dao();
 include_once('include/head.php'); 
 ?>
 
@@ -12,14 +14,37 @@ include_once('include/head.php');
 		<p>Welcome to Practice Helper! To create an account simply fill out the
 			following fields.
 		</p>
-	
-		<form>
-			Enter user name: <input type="text"><br>
-			Enter password: <input type="text"><br>
-			Confirm password: <input type="text">
-			<input type="submit" value="Submit">
+
+		<form method="post" action="include/processSignup.php">
+			<p>
+				<label>Enter user name:</label>
+				<input type="text" name="username">
+			</p>
+
+			<p>
+				<label>Enter password: </label>
+				<input type="text" name="password">
+			</p>
+			
+			<p>
+				<label>Confirm password:  </label>
+				<input type="text" name="confirmPass">
+			</p>
+			
+			<p>
+				<input type="submit" name="submit" value="Submit">
+			</p>	
 		</form>
 	</div>
+	<pre>
+		<?php 
+			if ($_GET) {
+				print_r($_GET);
+			} elseif ($_POST) {
+				print_r($_POST);
+			}
+		?>
+	</pre>
 	
 	<?php include_once('include/footer.php')?>
 </body>
