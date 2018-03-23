@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $page = 'home'; 
 include_once('include/head.php');
 ?>

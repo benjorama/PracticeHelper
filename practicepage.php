@@ -1,12 +1,17 @@
 <?php 
-$page = 'practicepage'; 
+session_start();
 require_once('include/Dao.php');
+$page = 'practicepage'; 
 $dao = new Dao();
 include_once('include/head.php');
 ?>
 
 <body>
-	<?php include_once('include/header.php'); ?>
+	<?php include_once('include/header.php');
+	if (isset($_SESSION['success'])) {
+		echo "<p>Congradulations! You've created an account. Here is your page.</p>";
+		unset($_SESSION['success']);
+	}?>
 	
 	<div class="body">
 
