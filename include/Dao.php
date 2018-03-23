@@ -55,5 +55,26 @@ class Dao {
         $results = $query->fetchColumn(0);
         return $results;
     }
+
+    //save user session;
+    public function save_session($name, $message) {
+        $conn = $this->getConnection();
+        $query = $conn->prepare("INSERT INTO entries (username, start_time, message)
+                                    VALUES (:username, NOW(), :message)");
+        $query->bindParam(':username', $name);
+        $query->bindParam(':message', $message);
+        $query->execute();
+    }
+
+    //return all sessions by user. 
+    public function get_sessions($name) {
+        $conn = $this->getConnection();
+        $query = $conn->prepare("select * from entries where username=:name");
+        $query->bindParam(':name', $name);
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        $results = $query->fetchAll();
+        return $results;
+    }
 }
 ?>
