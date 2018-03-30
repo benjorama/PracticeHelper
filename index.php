@@ -26,10 +26,10 @@ include_once('include/head.php');
 			the button below to try it. 
 		</p>
 	
-		<input type="button" value="Try it!">
+		<a href="practicepage.php">Try it!</a>
 		<h2>Sign Up</h2>
-		<p>If you'd like to save your practice history click the button below to sign up.</p>
-		<button type="button">Sign Up!</button>
+		<p>If you'd like to save your practice history click the link below to sign up.</p>
+		<a href="signup.php">Sign Up</a>
 	</div>
 
 	<?php include_once('include/footer.php'); ?>
