@@ -1,10 +1,10 @@
 <?php 
-
+mysql://:@/?reconnect=true
 class Dao {
-    private $host = 'localhost'; 
-    private $db = 'practice_helper';
-    private $user = 'root';
-    private $pass = '';
+    private $host = 'us-cdbr-iron-east-05.cleardb.net'; 
+    private $db = 'heroku_1eb096f091c2554';
+    private $user = 'ba6088760b9110';
+    private $pass = '7a33c204';
     
     public function getConnection() {
         return 
@@ -57,12 +57,22 @@ class Dao {
     }
 
     //save user session;
-    public function save_session($name, $message) {
+    public function save_session($name, $message, $start_time) {
         $conn = $this->getConnection();
         $query = $conn->prepare("INSERT INTO entries (username, start_time, message)
-                                    VALUES (:username, NOW(), :message)");
+                                    VALUES (:username, :start_time, :message)");
         $query->bindParam(':username', $name);
         $query->bindParam(':message', $message);
+        $query->bindParam(':start_time', $start_time);
+        $query->execute();
+    }
+
+    //save session stop time
+    public function save_stop_time($start_time) {
+        $conn = $this->getConnection();
+        $query = $conn->prepare("INSERT INTO entries (stop_time) WHERE start_time = :start_time
+        VALUES (NOW())");
+        $query->bindParam(':start_time', $start_time);
         $query->execute();
     }
 

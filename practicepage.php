@@ -16,25 +16,39 @@ include_once('include/head.php');
 		} 
 		if (isset($_SESSION['practice_errors'])) {
 			foreach ($_SESSION['practice_errors'] as $error) { ?>
-				<tr class='error'>
-					<td><?= $error; ?></td>
-				</tr>
+				<p class='error'><?= $error; ?></p>
 	  	<?php }} ?>
 
 		<h2>Your Practice Page</h2>
 		<h3>What are you practicing now?</h3>
 	
 		<form method="post" action="include/process_practice.php">
-			<p><input type="text" name="message"></p>
-			<p><input type="submit" name="start" value="start"></p>
+			<p><input type="text" name="message"
+				<?php
+				if(isset($_SESSION['practice_errors'])) { 
+					if(!isset($_SESSION['guest_message'])) {
+						$_SESSION['guest_message'] = ""; 
+					} ?>
+					value=<?=htmlspecialchars($_SESSION['guest_message']); ?>
+				<?php } ?>>
+			</p>
+
+			<p><input type="submit" 
+				<?php 
+				if(!isset($_SESSION['start']) && !isset($_SESSION['stop'])) { ?>
+					name="start" value="start"
+				<?php } 
+				elseif (isset($_SESSION['start'])) { ?>
+					name="stop" value="stop"
+				<?php }
+				elseif (isset($_SESSION['stop'])) { ?>
+					name="start" value="start"
+				<?php } ?>> 
+			</p>
 		</form>
 
 		<?php //start up some clock ?>
 		<p id="clock">0:00:00:00</p>
-
-		<form method="post" action="include/process_practice.php">
-			<p><input type="submit" name="stop" value="stop"></p>
-		</form>
 
 		<?php //stop the clock?>
 	
@@ -64,10 +78,11 @@ include_once('include/head.php');
 		} else { 
 			$entries = $dao->get_sessions($_SESSION['username']);?>
 			<table>
-     			<tr><th>Time</th><th>Message</th></tr>
+     			<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
         		<?php foreach ($entries as $entry) { ?>
           		<tr><td><?= $entry['start_time']; ?></td>
-                <td><?= htmlspecialchars($entry['message']); ?></td></tr>
+                <td><?= htmlspecialchars($entry['message']); ?></td>
+				<td><?= $entry['stop_time'] ?></td></tr>
 				<?php } ?>
 			</table>
 		<?php } ?>
