@@ -36,19 +36,20 @@ include_once('include/head.php');
 			<p><input type="submit" 
 				<?php 
 				if(!isset($_SESSION['start']) && !isset($_SESSION['stop'])) { ?>
-					name="start" value="start"
+					name="start" value="start" class="start"
 				<?php } 
 				elseif (isset($_SESSION['start'])) { ?>
-					name="stop" value="stop"
+					name="stop" value="stop" class="stop"
 				<?php }
 				elseif (isset($_SESSION['stop'])) { ?>
-					name="start" value="start"
+					name="start" value="start" class="start"
 				<?php } ?>> 
 			</p>
 		</form>
 
 		<?php //start up some clock ?>
-		<p id="clock">0:00:00:00</p>
+		<p id="clock"> clock doesn't work yet...0:00:00:00</p>
+
 
 		<?php //stop the clock?>
 	

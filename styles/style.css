@@ -46,3 +46,13 @@ html {
 .error {
 	color: crimson;
 }
+
+.start {
+	color: white;
+	background-color: green;
+}
+
+.stop {
+	color: white;
+	background-color: red;
+}
