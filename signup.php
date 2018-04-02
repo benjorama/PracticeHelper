@@ -28,24 +28,27 @@ include_once('include/head.php');
 			<p>
 				<label>Enter user name:</label>
 				<input type="text" name="username"
-				<?php if (isset($_SESSION['signup_errors'])) ?>
+				<?php if (isset($_SESSION['signup_errors'])) { ?>
 					value=<?= $_SESSION['username']?>
+				<?php } ?>
 				>
 			</p>
 			
 			<p>
 				<label>Enter password:</label>
 				<input type="text" name="password"
-				<?php if (isset($_SESSION['signup_errors'])) ?>
+				<?php if (isset($_SESSION['signup_errors'])) { ?>
 					value=<?= $_SESSION['password']?>
+				<?php } ?>
 				>
 			</p>
 
 			<p>
 				<label>Confirm password:</label>
 				<input type="text" name="confirm_pass"
-				<?php if (isset($_SESSION['signup_errors'])) ?>
+				<?php if (isset($_SESSION['signup_errors'])) {?>
 					value=<?= $_SESSION['confirm_pass']?>
+				<?php } ?>
 				>
 			</p>
 

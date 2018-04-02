@@ -42,5 +42,8 @@ $_SESSION['signup_errors'] = null;
 $dao->saveUser($_SESSION['username'], $_SESSION['password']);
 $_SESSION['success'] = true; 
 $_SESSION['logged_in'] = true;
+if (isset($_SESSION['signup_errors'])) {
+  unset($_SESSION['signup_errors']);
+}
 header("Location:../practicepage.php");
 ?>
