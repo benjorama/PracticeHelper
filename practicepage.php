@@ -30,6 +30,9 @@ include_once('include/head.php');
 						$_SESSION['guest_message'] = ""; 
 					} ?>
 					value=<?=htmlspecialchars($_SESSION['guest_message']); ?>
+				<?php }
+				if (isset($_SESSION['start'])) { ?>
+					disabled 
 				<?php } ?>>
 			</p>
 
