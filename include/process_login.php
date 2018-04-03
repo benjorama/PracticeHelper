@@ -34,6 +34,5 @@ if (!$valid) {
 //If there are no errors, indicate the session is logged in and redirect to user page.
 $_SESSION['login_errors'] = null;
 $_SESSION['logged_in'] = true;
-$_SESSION['username'] = $username;
 header("Location:../practicepage.php");
 ?>
