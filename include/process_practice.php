@@ -5,7 +5,7 @@ require_once "Dao.php";
 $dao = new Dao();
 
 if (isset($_POST['start'])) {
-    $message = $_POST['message'];
+    $message = htmlspecialchars($_POST['message']);
     $_SESSION['start'] = true;
     $_SESSION['start_time'] = date("Y-m-d H:i:s");
     if (isset($_SESSION['logged_in'])) {

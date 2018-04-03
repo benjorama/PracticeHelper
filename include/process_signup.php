@@ -2,9 +2,9 @@
 session_start();
 require_once "Dao.php";
 $dao = new Dao();
-$_SESSION['username'] = $_POST['username']; 
-$_SESSION['password'] = $_POST['password'];
-$_SESSION['confirm_pass'] = $_POST['confirm_pass']; 
+$_SESSION['username'] = htmlspecialchars($_POST['username']); 
+$_SESSION['password'] = htmlspecialchars($_POST['password']);
+$_SESSION['confirm_pass'] = htmlspecialchars($_POST['confirm_pass']); 
 
 /*error handling:*/
 $signup_errors = array();

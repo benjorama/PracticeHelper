@@ -60,16 +60,16 @@ include_once('include/head.php');
 				<table>
      				<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
-                	<td><?= htmlspecialchars($_SESSION['guest_message']); ?></td></tr>
+                	<td><?= $_SESSION['guest_message']; ?></td></tr>
 				</table> 
 				<?php 
 			
 			} elseif (isset($_SESSION['stop'])) { 
 				$stop_time = date("Y-m-d H:i:s"); ?>
 				<table>
-     				<tr><th>Time</th><th>Message</th><th>Stop Time</th></tr>
+     				<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
-            		<td><?= htmlspecialchars($_SESSION['guest_message']); ?></td>
+            		<td><?= $_SESSION['guest_message']; ?></td>
 					<td><?= $stop_time; ?></td></tr>
 				</table>
 				<?php 
@@ -82,7 +82,7 @@ include_once('include/head.php');
      			<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
         		<?php foreach ($entries as $entry) { ?>
           		<tr><td><?= $entry['start_time']; ?></td>
-                <td><?= htmlspecialchars($entry['message']); ?></td>
+                <td><?= $entry['message']; ?></td>
 				<td><?= $entry['stop_time'] ?></td></tr>
 				<?php } ?>
 			</table>
