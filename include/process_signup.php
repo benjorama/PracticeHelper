@@ -39,7 +39,9 @@ if (!$valid) {
 
 //If there are no errors, save the new user account credentials and redirect to the practice page.
 $_SESSION['signup_errors'] = null;
-$dao->saveUser($_SESSION['username'], $_SESSION['password']);
+$options = ['cost' => 9,]; //cost for password hash
+$hashed_pass = password_hash($_SESSION['password'], PASSWORD_DEFAULT, $options);
+$dao->saveUser($_SESSION['username'], $hashed_pass);
 $_SESSION['success'] = true; 
 $_SESSION['logged_in'] = true;
 if (isset($_SESSION['signup_errors'])) {

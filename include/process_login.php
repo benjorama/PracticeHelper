@@ -20,7 +20,9 @@ if (empty($_SESSION['password'])) {
   $valid = false;
 } 
 
-if ($dao->getPassword($_SESSION['username']) != $_SESSION['password'] || !$dao->userExists($_SESSION['username'])) {
+
+if (!password_verify($_SESSION['password'], $dao->getPassword($_SESSION['username'])) ||
+  !$dao->userExists($_SESSION['username'])) {
     $login_errors[] = 'Incorrect user name or password.';
     $valid = false;
 }

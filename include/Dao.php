@@ -70,7 +70,7 @@ class Dao {
     //save session stop time
     public function save_stop_time($start_time) {
         $conn = $this->getConnection();
-        $query = $conn->prepare("UPDATE entries SET stop_time=NOW() WHERE start_time=:start_time");
+        $query = $conn->prepare("UPDATE entries SET stop_time=CONVERT_TZ(NOW(), @@global.time_zone, @@session.time_zone) WHERE start_time=:start_time");
         $query->bindParam(':start_time', $start_time);
         $query->execute();
     }
