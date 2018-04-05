@@ -80,7 +80,7 @@ class Dao {
     //return all sessions by user. 
     public function get_sessions($name) {
         $conn = $this->getConnection();
-        $query = $conn->prepare("select * from entries where username=:name");
+        $query = $conn->prepare("select * from entries where username=:name order by start_time desc");
         $query->bindParam(':name', $name);
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $query->execute();
