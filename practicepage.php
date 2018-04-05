@@ -61,19 +61,22 @@ include_once('include/head.php');
 		if (!isset($_SESSION['logged_in'])) {
 			if (isset($_SESSION['start'])) { ?>
 				<table>
-     				<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
+     				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
                 	<td><?= $_SESSION['guest_message']; ?></td></tr>
 				</table> 
 				<?php 
 			
 			} elseif (isset($_SESSION['stop'])) { 
-				$stop_time = date("Y-m-d H:i:s"); ?>
+				$stop_time = new DateTime();
+				$start_time = new DateTime($_SESSION['start_time']);
+				$duration = $start_time->diff($stop_time);
+				?>
 				<table>
-     				<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
+     				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
             		<td><?= $_SESSION['guest_message']; ?></td>
-					<td><?= $stop_time; ?></td></tr>
+					<td><?= $duration->format('%H:%I:%S'); ?></td></tr>
 				</table>
 				<?php 
 				session_destroy(); 
@@ -82,7 +85,7 @@ include_once('include/head.php');
 		} else { 
 			$entries = $dao->get_sessions($_SESSION['username']);?>
 			<table>
-     			<tr><th>Start Time</th><th>Message</th><th>Stop Time</th></tr>
+     			<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
         		<?php foreach ($entries as $entry) { ?>
           		<tr><td><?= $entry['start_time']; ?></td>
                 <td><?= $entry['message']; ?></td>
