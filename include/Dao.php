@@ -77,7 +77,7 @@ class Dao {
         $query->execute();
     }
 
-    //return all sessions by user. 
+    //return all sessions by user.  Most resent posts first.
     public function get_sessions($name) {
         $conn = $this->getConnection();
         $query = $conn->prepare("select * from entries where username=:name order by start_time desc");
