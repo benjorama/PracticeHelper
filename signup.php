@@ -26,7 +26,7 @@ include_once('include/head.php');
 
 		<form method="post" action="include/process_signup.php">
 			<p>
-				<label>Enter user name:</label>
+				<label for="username">Enter user name:</label>
 				<input type="text" name="username"
 				<?php if (isset($_SESSION['signup_errors'])) { ?>
 					value=<?= $_SESSION['username']?>
@@ -35,7 +35,7 @@ include_once('include/head.php');
 			</p>
 			
 			<p>
-				<label>Enter password:</label>
+				<label for="password">Enter password:</label>
 				<input type="text" name="password"
 				<?php if (isset($_SESSION['signup_errors'])) { ?>
 					value=<?= $_SESSION['password']?>
@@ -44,7 +44,7 @@ include_once('include/head.php');
 			</p>
 
 			<p>
-				<label>Confirm password:</label>
+				<label for="confirm_pass">Confirm password:</label>
 				<input type="text" name="confirm_pass"
 				<?php if (isset($_SESSION['signup_errors'])) {?>
 					value=<?= $_SESSION['confirm_pass']?>

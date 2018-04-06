@@ -20,7 +20,7 @@ include_once('include/head.php');
 	  	<?php }} ?>
 
 		<h2>Your Practice Page</h2>
-		<h3>What are you practicing now?</h3>
+		<h3 for="message">What are you practicing now?</h3>
 	
 		<form method="post" action="include/process_practice.php">
 			<p><input type="text" name="message"

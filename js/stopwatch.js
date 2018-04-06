@@ -1,3 +1,6 @@
+/**
+ * Stopwatch functionality for practice page. 
+ */
 $(document).ready(function() {
     // all custom jQuery will go here
     if ($("#button").val() === "start") {
@@ -25,6 +28,7 @@ $(document).ready(function() {
             $("#hours").html((hours.toString()).padStart(2, "0"));
 
         }, 100);
+
         $("#demo").html("STARTED!");
     }
 });
