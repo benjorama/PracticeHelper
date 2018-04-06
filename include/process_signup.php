@@ -37,10 +37,14 @@ if (!$valid) {
 }
 
 
-//If there are no errors, save the new user account credentials and redirect to the practice page.
+/*If there are no errors, save the new user account credentials and redirect
+to the practice page.*/
 $_SESSION['signup_errors'] = null;
-$options = ['cost' => 9,]; //cost for password hash
+
+//password_hash() is built into php. It uses BCRYPT by default and generates its own salt. 
+$options = ['cost' => 10,]; //cost for password_hash()
 $hashed_pass = password_hash($_SESSION['password'], PASSWORD_DEFAULT, $options);
+
 $dao->saveUser($_SESSION['username'], $hashed_pass);
 $_SESSION['success'] = true; 
 $_SESSION['logged_in'] = true;

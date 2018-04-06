@@ -64,3 +64,8 @@ table, th, td {
 table {
 	width: 100%;
 }
+
+.stopwatch {
+    font-family: 'Cutive Mono', monospace;
+	font-size: 30pt;
+}

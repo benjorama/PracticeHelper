@@ -3,6 +3,7 @@
 <head>
 	<link href="/images/favicon.ico" type="image/png" rel="shortcut icon" />
     <link href="/styles/style.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet"> 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/stopwatch.js"></script>
 
