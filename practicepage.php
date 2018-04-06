@@ -36,7 +36,7 @@ include_once('include/head.php');
 				<?php } ?>>
 			</p>
 
-			<p><input type="submit" 
+			<p><input type="submit" id="button"
 				<?php 
 				if(!isset($_SESSION['start']) && !isset($_SESSION['stop'])) { ?>
 					name="start" value="start" class="start"
@@ -55,9 +55,10 @@ include_once('include/head.php');
         	--><span id="hours">00</span>:<!--
         	--><span id="minutes">00</span>:<!--
         	--><span id="seconds">00</span>:<!--
-        	--><span id="miliseconds">000</span>
+        	--><span id="milliseconds">000</span>
+			<p id="demo"></p>
     	</div>
-
+		
 
 		<?php //stop the clock?>
 	

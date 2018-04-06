@@ -3,6 +3,8 @@
 <head>
 	<link href="/images/favicon.ico" type="image/png" rel="shortcut icon" />
     <link href="/styles/style.css" type="text/css" rel="stylesheet" />
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/stopwatch.js"></script>
 
     <?php 
     if ($page == 'home') { ?>
