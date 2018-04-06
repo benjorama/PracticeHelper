@@ -51,7 +51,12 @@ include_once('include/head.php');
 		</form>
 
 		<?php //start up some clock ?>
-		<p id="clock"> clock doesn't work yet...0:00:00:00</p>
+		<div class="stopwatch"><!--
+        	--><span id="hours">00</span>:<!--
+        	--><span id="minutes">00</span>:<!--
+        	--><span id="seconds">00</span>:<!--
+        	--><span id="miliseconds">000</span>
+    	</div>
 
 
 		<?php //stop the clock?>
