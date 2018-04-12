@@ -57,18 +57,16 @@ include_once('include/head.php');
         	--><span id="seconds">00</span>:<!--
         	--><span id="milliseconds">000</span>
     	</div>
-		
-
-		<?php //stop the clock?>
 	
 		<h3>Practice History</h3>
 		<?php 
+		//IF user is not logged in, keep page in "try it" mode
 		if (!isset($_SESSION['logged_in'])) {
 			if (isset($_SESSION['start'])) { ?>
 				<table>
      				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
-                	<td><?= $_SESSION['guest_message']; ?></td></tr>
+                	<td><?= htmlspecialchars($_SESSION['guest_message']); ?></td></tr>
 				</table> 
 				<?php 
 			
@@ -80,7 +78,7 @@ include_once('include/head.php');
 				<table>
      				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
           			<tr><td><?= $_SESSION['start_time']; ?></td>
-            		<td><?= $_SESSION['guest_message']; ?></td>
+            		<td><?= htmlspecialchars($_SESSION['guest_message']); ?></td>
 					<td><?= $duration->format('%H:%I:%S'); ?></td></tr>
 				</table>
 				<?php 
@@ -88,12 +86,13 @@ include_once('include/head.php');
 				} 
 			 
 		} else { 
+			//If user is logged in, populate their practice history.
 			$entries = $dao->get_sessions($_SESSION['username']);?>
 			<table>
      			<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
         		<?php foreach ($entries as $entry) { ?>
           		<tr><td><?= $entry['start_time']; ?></td>
-                <td><?= $entry['message']; ?></td>
+                <td><?= htmlspecialchars($entry['message']); ?></td>
 				<td><?= $entry['stop_time'] ?></td></tr>
 				<?php } ?>
 			</table>

@@ -3,7 +3,7 @@ session_start();
 require_once "Dao.php";
 $dao = new Dao();
 $_SESSION['username'] = htmlspecialchars($_POST['username']); 
-$_SESSION['password'] = htmlspecialchars($_POST['password']);
+$password = htmlspecialchars($_POST['password']);
 
 $_SESSION['presets'] = array($_POST);
 
@@ -15,13 +15,13 @@ if (empty($_SESSION['username'])){
   $valid = false; 
 }
 
-if (empty($_SESSION['password'])) {
+if (empty($password)) {
   $login_errors[] = 'Please enter a password';
   $valid = false;
 } 
 
 
-if (!password_verify($_SESSION['password'], $dao->getPassword($_SESSION['username'])) ||
+if (!password_verify($password, $dao->getPassword($_SESSION['username'])) ||
   !$dao->userExists($_SESSION['username'])) {
     $login_errors[] = 'Incorrect user name or password.';
     $valid = false;
@@ -29,6 +29,7 @@ if (!password_verify($_SESSION['password'], $dao->getPassword($_SESSION['usernam
 
 if (!$valid) {
   $_SESSION['login_errors'] = $login_errors;
+  $_SESSION['password'] = $password;
   header("Location:../login.php");
   exit;
 }
