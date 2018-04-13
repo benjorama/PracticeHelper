@@ -66,7 +66,6 @@ include_once('include/head.php');
 			if (isset($_SESSION['start'])) {
 				$offset = $_SESSION['date_offset'];
 				$_SESSION['start_time'] = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $offset))); ?>
-				<p><?="$offset"?></p>
 				<table>
      				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
           			<tr><td><?= $_SESSION['start_time'] ?></td>
