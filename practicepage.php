@@ -17,7 +17,7 @@ include_once('include/head.php');
 		if (isset($_SESSION['practice_errors'])) {
 			foreach ($_SESSION['practice_errors'] as $error) { ?>
 				<p class='error'><?= $error; ?></p>
-	  	<?php }} ?>
+		  <?php }}  ?>
 
 		<h2>Your Practice Page</h2>
 		<h3 for="message">What are you practicing now?</h3>
@@ -59,21 +59,33 @@ include_once('include/head.php');
     	</div>
 	
 		<h3>Practice History</h3>
+
 		<?php 
 		//IF user is not logged in, keep page in "try it" mode
 		if (!isset($_SESSION['logged_in'])) {
-			if (isset($_SESSION['start'])) { ?>
+			if (isset($_SESSION['start'])) {
+				$offset = $_SESSION['date_offset'];
+				$_SESSION['start_time'] = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $offset))); ?>
+				<p><?="$offset"?></p>
 				<table>
      				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>
-          			<tr><td><?= $_SESSION['start_time']; ?></td>
+          			<tr><td><?= $_SESSION['start_time'] ?></td>
                 	<td><?= htmlspecialchars($_SESSION['guest_message']); ?></td></tr>
 				</table> 
 				<?php 
 			
 			} elseif (isset($_SESSION['stop'])) { 
+				$offset =  $_SESSION['date_offset'];
 				$stop_time = new DateTime();
+				if ($offset > 0) {
+					$stop_time->add(new DateInterval("PT"."$offset"."H"));
+				} elseif ($offset < 0) {
+					$offset *= -1; 
+					$stop_time->sub(new DateInterval("PT"."$offset"."H"));
+				}
 				$start_time = new DateTime($_SESSION['start_time']);
 				$duration = $start_time->diff($stop_time);
+
 				?>
 				<table>
      				<tr><th>Start Time</th><th>Item</th><th>Duration</th></tr>

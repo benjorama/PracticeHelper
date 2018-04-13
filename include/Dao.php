@@ -68,8 +68,8 @@ class Dao {
     }
 
     //save session stop time
-    public function save_stop_time($start_time) {
-        $stop_time = date("Y-m-d H:i:s");
+    public function save_stop_time($start_time, $offset) {
+        $stop_time = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $offset)));
         $conn = $this->getConnection();
         $query = $conn->prepare("UPDATE entries SET stop_time=timediff(:stop_time, :start_time) WHERE start_time=:start_time");
         $query->bindParam(':start_time', $start_time);
